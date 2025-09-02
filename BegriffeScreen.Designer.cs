@@ -38,8 +38,8 @@
             this.btnEditBegriffe = new System.Windows.Forms.Button();
             this.btnDeleteBegriffe = new System.Windows.Forms.Button();
             this.btnAddBegriffe = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridViewShowBegriffe = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowBegriffe)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRtnBegriffe2Menu
@@ -153,13 +153,27 @@
             this.btnAddBegriffe.Text = "Hinzufügen";
             this.btnAddBegriffe.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dataGridViewShowBegriffe
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 338);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(903, 379);
-            this.dataGridView1.TabIndex = 47;
+            this.dataGridViewShowBegriffe.AllowUserToAddRows = false;
+            this.dataGridViewShowBegriffe.AllowUserToDeleteRows = false;
+            this.dataGridViewShowBegriffe.AllowUserToResizeColumns = false;
+            this.dataGridViewShowBegriffe.AllowUserToResizeRows = false;
+            this.dataGridViewShowBegriffe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewShowBegriffe.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.dataGridViewShowBegriffe.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewShowBegriffe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewShowBegriffe.Location = new System.Drawing.Point(12, 338);
+            this.dataGridViewShowBegriffe.MultiSelect = false;
+            this.dataGridViewShowBegriffe.Name = "dataGridViewShowBegriffe";
+            this.dataGridViewShowBegriffe.ReadOnly = true;
+            this.dataGridViewShowBegriffe.RowHeadersVisible = false;
+            this.dataGridViewShowBegriffe.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.dataGridViewShowBegriffe.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.dataGridViewShowBegriffe.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.dataGridViewShowBegriffe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewShowBegriffe.Size = new System.Drawing.Size(903, 379);
+            this.dataGridViewShowBegriffe.TabIndex = 47;
             // 
             // BegriffeScreen
             // 
@@ -167,7 +181,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewShowBegriffe);
             this.Controls.Add(this.btnClearBegriffe);
             this.Controls.Add(this.btnEditBegriffe);
             this.Controls.Add(this.btnDeleteBegriffe);
@@ -182,7 +196,7 @@
             this.Name = "BegriffeScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Begriffe";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowBegriffe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,6 +213,6 @@
         private System.Windows.Forms.Button btnEditBegriffe;
         private System.Windows.Forms.Button btnDeleteBegriffe;
         private System.Windows.Forms.Button btnAddBegriffe;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewShowBegriffe;
     }
 }

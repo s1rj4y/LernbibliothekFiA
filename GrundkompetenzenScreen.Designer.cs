@@ -40,8 +40,10 @@
             this.btnEditGK = new System.Windows.Forms.Button();
             this.btnDeleteGK = new System.Windows.Forms.Button();
             this.btnAddGK = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridViewShowGK = new System.Windows.Forms.DataGridView();
+            this.comboBoxChooseLF = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowGK)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRtnGK2Menu
@@ -137,7 +139,7 @@
             this.btnClearGK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnClearGK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearGK.ForeColor = System.Drawing.Color.White;
-            this.btnClearGK.Location = new System.Drawing.Point(255, 148);
+            this.btnClearGK.Location = new System.Drawing.Point(255, 173);
             this.btnClearGK.Name = "btnClearGK";
             this.btnClearGK.Size = new System.Drawing.Size(87, 23);
             this.btnClearGK.TabIndex = 42;
@@ -149,7 +151,7 @@
             this.btnEditGK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnEditGK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditGK.ForeColor = System.Drawing.Color.White;
-            this.btnEditGK.Location = new System.Drawing.Point(174, 148);
+            this.btnEditGK.Location = new System.Drawing.Point(174, 173);
             this.btnEditGK.Name = "btnEditGK";
             this.btnEditGK.Size = new System.Drawing.Size(75, 23);
             this.btnEditGK.TabIndex = 41;
@@ -161,7 +163,7 @@
             this.btnDeleteGK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnDeleteGK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteGK.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteGK.Location = new System.Drawing.Point(93, 148);
+            this.btnDeleteGK.Location = new System.Drawing.Point(93, 173);
             this.btnDeleteGK.Name = "btnDeleteGK";
             this.btnDeleteGK.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteGK.TabIndex = 40;
@@ -173,20 +175,61 @@
             this.btnAddGK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnAddGK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddGK.ForeColor = System.Drawing.Color.White;
-            this.btnAddGK.Location = new System.Drawing.Point(12, 148);
+            this.btnAddGK.Location = new System.Drawing.Point(12, 173);
             this.btnAddGK.Name = "btnAddGK";
             this.btnAddGK.Size = new System.Drawing.Size(75, 23);
             this.btnAddGK.TabIndex = 39;
             this.btnAddGK.Text = "Hinzufügen";
             this.btnAddGK.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dataGridViewShowGK
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 177);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(903, 540);
-            this.dataGridView1.TabIndex = 43;
+            this.dataGridViewShowGK.AllowUserToAddRows = false;
+            this.dataGridViewShowGK.AllowUserToDeleteRows = false;
+            this.dataGridViewShowGK.AllowUserToResizeColumns = false;
+            this.dataGridViewShowGK.AllowUserToResizeRows = false;
+            this.dataGridViewShowGK.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewShowGK.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.dataGridViewShowGK.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewShowGK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewShowGK.Location = new System.Drawing.Point(12, 202);
+            this.dataGridViewShowGK.MultiSelect = false;
+            this.dataGridViewShowGK.Name = "dataGridViewShowGK";
+            this.dataGridViewShowGK.ReadOnly = true;
+            this.dataGridViewShowGK.RowHeadersVisible = false;
+            this.dataGridViewShowGK.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.dataGridViewShowGK.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.dataGridViewShowGK.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.dataGridViewShowGK.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewShowGK.Size = new System.Drawing.Size(903, 515);
+            this.dataGridViewShowGK.TabIndex = 43;
+            // 
+            // comboBoxChooseLF
+            // 
+            this.comboBoxChooseLF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.comboBoxChooseLF.Cursor = System.Windows.Forms.Cursors.Default;
+            this.comboBoxChooseLF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxChooseLF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxChooseLF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxChooseLF.ForeColor = System.Drawing.Color.White;
+            this.comboBoxChooseLF.FormattingEnabled = true;
+            this.comboBoxChooseLF.Location = new System.Drawing.Point(174, 135);
+            this.comboBoxChooseLF.Name = "comboBoxChooseLF";
+            this.comboBoxChooseLF.Size = new System.Drawing.Size(741, 24);
+            this.comboBoxChooseLF.TabIndex = 45;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 135);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 20);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "Lernfeld";
             // 
             // GrundkompetenzenScreen
             // 
@@ -194,7 +237,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.comboBoxChooseLF);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridViewShowGK);
             this.Controls.Add(this.btnClearGK);
             this.Controls.Add(this.btnEditGK);
             this.Controls.Add(this.btnDeleteGK);
@@ -211,7 +256,7 @@
             this.Name = "GrundkompetenzenScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grundkompetenzen";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowGK)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,6 +275,8 @@
         private System.Windows.Forms.Button btnEditGK;
         private System.Windows.Forms.Button btnDeleteGK;
         private System.Windows.Forms.Button btnAddGK;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewShowGK;
+        private System.Windows.Forms.ComboBox comboBoxChooseLF;
+        private System.Windows.Forms.Label label1;
     }
 }

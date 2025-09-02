@@ -39,6 +39,8 @@
             this.btnDeleteThemen = new System.Windows.Forms.Button();
             this.btnAddThemen = new System.Windows.Forms.Button();
             this.dataGridViewShowThemen = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxChooseLF = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowThemen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,56 +113,102 @@
             this.btnClearThemen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnClearThemen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearThemen.ForeColor = System.Drawing.Color.White;
-            this.btnClearThemen.Location = new System.Drawing.Point(255, 116);
+            this.btnClearThemen.Location = new System.Drawing.Point(255, 149);
             this.btnClearThemen.Name = "btnClearThemen";
             this.btnClearThemen.Size = new System.Drawing.Size(87, 23);
             this.btnClearThemen.TabIndex = 34;
             this.btnClearThemen.Text = "Felder leeren";
             this.btnClearThemen.UseVisualStyleBackColor = false;
+            this.btnClearThemen.Click += new System.EventHandler(this.btnClearThemen_Click);
             // 
             // btnEditThemen
             // 
             this.btnEditThemen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnEditThemen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditThemen.ForeColor = System.Drawing.Color.White;
-            this.btnEditThemen.Location = new System.Drawing.Point(174, 116);
+            this.btnEditThemen.Location = new System.Drawing.Point(174, 149);
             this.btnEditThemen.Name = "btnEditThemen";
             this.btnEditThemen.Size = new System.Drawing.Size(75, 23);
             this.btnEditThemen.TabIndex = 33;
             this.btnEditThemen.Text = "Editieren";
             this.btnEditThemen.UseVisualStyleBackColor = false;
+            this.btnEditThemen.Click += new System.EventHandler(this.btnEditThemen_Click);
             // 
             // btnDeleteThemen
             // 
             this.btnDeleteThemen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnDeleteThemen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteThemen.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteThemen.Location = new System.Drawing.Point(93, 116);
+            this.btnDeleteThemen.Location = new System.Drawing.Point(93, 149);
             this.btnDeleteThemen.Name = "btnDeleteThemen";
             this.btnDeleteThemen.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteThemen.TabIndex = 32;
             this.btnDeleteThemen.Text = "Entfernen";
             this.btnDeleteThemen.UseVisualStyleBackColor = false;
+            this.btnDeleteThemen.Click += new System.EventHandler(this.btnDeleteThemen_Click);
             // 
             // btnAddThemen
             // 
             this.btnAddThemen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnAddThemen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddThemen.ForeColor = System.Drawing.Color.White;
-            this.btnAddThemen.Location = new System.Drawing.Point(12, 116);
+            this.btnAddThemen.Location = new System.Drawing.Point(12, 149);
             this.btnAddThemen.Name = "btnAddThemen";
             this.btnAddThemen.Size = new System.Drawing.Size(75, 23);
             this.btnAddThemen.TabIndex = 31;
             this.btnAddThemen.Text = "Hinzufügen";
             this.btnAddThemen.UseVisualStyleBackColor = false;
+            this.btnAddThemen.Click += new System.EventHandler(this.btnAddThemen_Click);
             // 
             // dataGridViewShowThemen
             // 
+            this.dataGridViewShowThemen.AllowUserToAddRows = false;
+            this.dataGridViewShowThemen.AllowUserToDeleteRows = false;
+            this.dataGridViewShowThemen.AllowUserToResizeColumns = false;
+            this.dataGridViewShowThemen.AllowUserToResizeRows = false;
+            this.dataGridViewShowThemen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewShowThemen.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.dataGridViewShowThemen.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridViewShowThemen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewShowThemen.Location = new System.Drawing.Point(12, 145);
+            this.dataGridViewShowThemen.Location = new System.Drawing.Point(12, 178);
+            this.dataGridViewShowThemen.MultiSelect = false;
             this.dataGridViewShowThemen.Name = "dataGridViewShowThemen";
-            this.dataGridViewShowThemen.Size = new System.Drawing.Size(903, 572);
+            this.dataGridViewShowThemen.ReadOnly = true;
+            this.dataGridViewShowThemen.RowHeadersVisible = false;
+            this.dataGridViewShowThemen.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.dataGridViewShowThemen.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.dataGridViewShowThemen.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.dataGridViewShowThemen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewShowThemen.Size = new System.Drawing.Size(903, 539);
             this.dataGridViewShowThemen.TabIndex = 35;
+            this.dataGridViewShowThemen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewShowThemen_CellContentClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 105);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 20);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Lernfeld";
+            // 
+            // comboBoxChooseLF
+            // 
+            this.comboBoxChooseLF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.comboBoxChooseLF.Cursor = System.Windows.Forms.Cursors.Default;
+            this.comboBoxChooseLF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxChooseLF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxChooseLF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxChooseLF.ForeColor = System.Drawing.Color.White;
+            this.comboBoxChooseLF.FormattingEnabled = true;
+            this.comboBoxChooseLF.Location = new System.Drawing.Point(174, 105);
+            this.comboBoxChooseLF.Name = "comboBoxChooseLF";
+            this.comboBoxChooseLF.Size = new System.Drawing.Size(741, 24);
+            this.comboBoxChooseLF.TabIndex = 37;
             // 
             // ThemenScreen
             // 
@@ -168,6 +216,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.comboBoxChooseLF);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewShowThemen);
             this.Controls.Add(this.btnClearThemen);
             this.Controls.Add(this.btnEditThemen);
@@ -201,5 +251,7 @@
         private System.Windows.Forms.Button btnDeleteThemen;
         private System.Windows.Forms.Button btnAddThemen;
         private System.Windows.Forms.DataGridView dataGridViewShowThemen;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBoxChooseLF;
     }
 }
