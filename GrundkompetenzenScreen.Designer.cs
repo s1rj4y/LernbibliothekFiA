@@ -145,6 +145,7 @@
             this.btnClearGK.TabIndex = 42;
             this.btnClearGK.Text = "Felder leeren";
             this.btnClearGK.UseVisualStyleBackColor = false;
+            this.btnClearGK.Click += new System.EventHandler(this.btnClearGK_Click);
             // 
             // btnEditGK
             // 
@@ -157,6 +158,7 @@
             this.btnEditGK.TabIndex = 41;
             this.btnEditGK.Text = "Editieren";
             this.btnEditGK.UseVisualStyleBackColor = false;
+            this.btnEditGK.Click += new System.EventHandler(this.btnEditGK_Click);
             // 
             // btnDeleteGK
             // 
@@ -169,6 +171,7 @@
             this.btnDeleteGK.TabIndex = 40;
             this.btnDeleteGK.Text = "Entfernen";
             this.btnDeleteGK.UseVisualStyleBackColor = false;
+            this.btnDeleteGK.Click += new System.EventHandler(this.btnDeleteGK_Click);
             // 
             // btnAddGK
             // 
@@ -181,6 +184,7 @@
             this.btnAddGK.TabIndex = 39;
             this.btnAddGK.Text = "Hinzufügen";
             this.btnAddGK.UseVisualStyleBackColor = false;
+            this.btnAddGK.Click += new System.EventHandler(this.btnAddGK_Click);
             // 
             // dataGridViewShowGK
             // 
@@ -203,6 +207,7 @@
             this.dataGridViewShowGK.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewShowGK.Size = new System.Drawing.Size(903, 515);
             this.dataGridViewShowGK.TabIndex = 43;
+            this.dataGridViewShowGK.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewShowGK_CellContentClick);
             // 
             // comboBoxChooseLF
             // 

@@ -200,8 +200,8 @@ namespace LernbibliothekFiA
 
         private void ShowThemen()
         {
-            string queryShowThemen = "SELECT t.ThemenID, t.Themenbezeichnung, t.Bearbeitungsdatum, l.LFBezeichnung FROM Themen t " +
-                "JOIN Lernfelder l ON t.LFID = l.LFID";
+            string queryShowThemen = "SELECT t.ThemenID, t.Themenbezeichnung, t.Bearbeitungsdatum, l.LFBezeichnung " +
+                "FROM Themen t JOIN Lernfelder l ON t.LFID = l.LFID";
 
             using (MySqlConnection connection = new MySqlConnection(databaseConnection))
             {
