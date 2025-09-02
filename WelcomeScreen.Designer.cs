@@ -28,13 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WelcomeScreen));
+            this.btnEnterLogin = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnEnterLogin
+            // 
+            this.btnEnterLogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnEnterLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEnterLogin.FlatAppearance.BorderSize = 0;
+            this.btnEnterLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnEnterLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnterLogin.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEnterLogin.Location = new System.Drawing.Point(255, 245);
+            this.btnEnterLogin.Name = "btnEnterLogin";
+            this.btnEnterLogin.Size = new System.Drawing.Size(131, 229);
+            this.btnEnterLogin.TabIndex = 0;
+            this.btnEnterLogin.UseVisualStyleBackColor = false;
+            this.btnEnterLogin.Click += new System.EventHandler(this.btnEnterLogin_Click);
+            // 
+            // WelcomeScreen
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(624, 473);
+            this.Controls.Add(this.btnEnterLogin);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "WelcomeScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Willkommen, in der Lernbibliothek für Fachinformatiker!";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnEnterLogin;
     }
 }
 

@@ -10,21 +10,18 @@ using System.Windows.Forms;
 
 namespace LernbibliothekFiA
 {
-    public partial class WelcomeScreen : Form
+    public partial class ThemenScreen : Form
     {
-        public WelcomeScreen()
+        public ThemenScreen()
         {
             InitializeComponent();
         }
 
-        private void btnEnterLogin_Click(object sender, EventArgs e)
+        private void btnRtnThemen2Menu_Click(object sender, EventArgs e)
         {
-            // Login nachträglich einbauen
-
             MenuScreen menuScreen = new MenuScreen();
             menuScreen.Show();
             this.Hide();
-
         }
     }
 }
