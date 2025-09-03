@@ -247,12 +247,12 @@ namespace LernbibliothekFiA
 
         private void ShowBegriffe()
         {
-            string queryShowGK = "SELECT b. BegriffID, b.Begriffbezeichnung, b.Begriffsdefinition, t.Themenbezeichnung, g.GKBezeichnung " +
+            string queryShowBegriffe = "SELECT b. BegriffID, b.Begriffbezeichnung, b.Begriffsdefinition, t.Themenbezeichnung, g.GKBezeichnung " +
                 "FROM Begriffe b JOIN Themen t ON b.ThemenID = t.ThemenID JOIN Grundkompetenzen g ON b.GKID = g.GKID";
 
             using (MySqlConnection connection = new MySqlConnection(databaseConnection))
             {
-                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(queryShowGK, databaseConnection);
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(queryShowBegriffe, databaseConnection);
 
                 DataSet dataSet = new DataSet();
                 mySqlDataAdapter.Fill(dataSet);
