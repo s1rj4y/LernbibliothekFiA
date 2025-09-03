@@ -39,7 +39,7 @@
             this.btnDeleteThemen = new System.Windows.Forms.Button();
             this.btnAddThemen = new System.Windows.Forms.Button();
             this.dataGridViewShowThemen = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblChooseLF = new System.Windows.Forms.Label();
             this.comboBoxChooseLF = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowThemen)).BeginInit();
             this.SuspendLayout();
@@ -183,25 +183,24 @@
             this.dataGridViewShowThemen.TabIndex = 35;
             this.dataGridViewShowThemen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewShowThemen_CellContentClick);
             // 
-            // label1
+            // lblChooseLF
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 105);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 20);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Lernfeld";
+            this.lblChooseLF.AutoSize = true;
+            this.lblChooseLF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.lblChooseLF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblChooseLF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChooseLF.ForeColor = System.Drawing.Color.White;
+            this.lblChooseLF.Location = new System.Drawing.Point(12, 105);
+            this.lblChooseLF.Name = "lblChooseLF";
+            this.lblChooseLF.Size = new System.Drawing.Size(67, 20);
+            this.lblChooseLF.TabIndex = 36;
+            this.lblChooseLF.Text = "Lernfeld";
             // 
             // comboBoxChooseLF
             // 
             this.comboBoxChooseLF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.comboBoxChooseLF.Cursor = System.Windows.Forms.Cursors.Default;
             this.comboBoxChooseLF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxChooseLF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxChooseLF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxChooseLF.ForeColor = System.Drawing.Color.White;
             this.comboBoxChooseLF.FormattingEnabled = true;
@@ -217,7 +216,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.comboBoxChooseLF);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblChooseLF);
             this.Controls.Add(this.dataGridViewShowThemen);
             this.Controls.Add(this.btnClearThemen);
             this.Controls.Add(this.btnEditThemen);
@@ -251,7 +250,7 @@
         private System.Windows.Forms.Button btnDeleteThemen;
         private System.Windows.Forms.Button btnAddThemen;
         private System.Windows.Forms.DataGridView dataGridViewShowThemen;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblChooseLF;
         private System.Windows.Forms.ComboBox comboBoxChooseLF;
     }
 }

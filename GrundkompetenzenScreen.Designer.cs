@@ -42,7 +42,7 @@
             this.btnAddGK = new System.Windows.Forms.Button();
             this.dataGridViewShowGK = new System.Windows.Forms.DataGridView();
             this.comboBoxChooseLF = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblChooseLF = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowGK)).BeginInit();
             this.SuspendLayout();
             // 
@@ -214,7 +214,6 @@
             this.comboBoxChooseLF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.comboBoxChooseLF.Cursor = System.Windows.Forms.Cursors.Default;
             this.comboBoxChooseLF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxChooseLF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxChooseLF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxChooseLF.ForeColor = System.Drawing.Color.White;
             this.comboBoxChooseLF.FormattingEnabled = true;
@@ -223,18 +222,18 @@
             this.comboBoxChooseLF.Size = new System.Drawing.Size(741, 24);
             this.comboBoxChooseLF.TabIndex = 45;
             // 
-            // label1
+            // lblChooseLF
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 135);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 20);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "Lernfeld";
+            this.lblChooseLF.AutoSize = true;
+            this.lblChooseLF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.lblChooseLF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblChooseLF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChooseLF.ForeColor = System.Drawing.Color.White;
+            this.lblChooseLF.Location = new System.Drawing.Point(12, 135);
+            this.lblChooseLF.Name = "lblChooseLF";
+            this.lblChooseLF.Size = new System.Drawing.Size(67, 20);
+            this.lblChooseLF.TabIndex = 44;
+            this.lblChooseLF.Text = "Lernfeld";
             // 
             // GrundkompetenzenScreen
             // 
@@ -243,7 +242,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.comboBoxChooseLF);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblChooseLF);
             this.Controls.Add(this.dataGridViewShowGK);
             this.Controls.Add(this.btnClearGK);
             this.Controls.Add(this.btnEditGK);
@@ -282,6 +281,6 @@
         private System.Windows.Forms.Button btnAddGK;
         private System.Windows.Forms.DataGridView dataGridViewShowGK;
         private System.Windows.Forms.ComboBox comboBoxChooseLF;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblChooseLF;
     }
 }

@@ -212,9 +212,6 @@ namespace LernbibliothekFiA
             string queryShowGK = "SELECT g.GKID, g.GKNr, g.GKBezeichnung, g.Bearbeitungsdatum, l.LFBezeichnung " +
                 "FROM Grundkompetenzen g JOIN Lernfelder l ON g.LFID = l.LFID";
 
-            //string queryShowThemen = "SELECT t.ThemenID, t.Themenbezeichnung, t.Bearbeitungsdatum, l.LFBezeichnung " +
-            //    "FROM Themen t JOIN Lernfelder l ON t.LFID = l.LFID";
-
             using (MySqlConnection connection = new MySqlConnection(databaseConnection))
             {
                 MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(queryShowGK, databaseConnection);
