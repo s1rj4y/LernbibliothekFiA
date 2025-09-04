@@ -8,23 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace LernbibliothekFiA
 {
     public partial class ReadingScreen : Form
     {
-        private string databaseConnection = "Server=127.0.0.1;Port=3306;Database=Lernbibliothek_FiAe;Uid=root;Pwd=061289";
+        private string _dbUserName;
         private int lastSelectedBegriffID;
 
-        public ReadingScreen()
+        public ReadingScreen(string dbUserName)
         {
             InitializeComponent();
+
+            _dbUserName = dbUserName;
+
             ShowBegriffe();
         }
 
         private void btnRtnReading2Menu_Click(object sender, EventArgs e)
         {
-            MenuScreen menuScreen = new MenuScreen();
+            MenuScreen menuScreen = new MenuScreen(_dbUserName);
             menuScreen.Show();
             this.Hide();
         }
@@ -47,9 +51,9 @@ namespace LernbibliothekFiA
         {
             string queryShowBegriffe = "SELECT BegriffID, Begriffbezeichnung FROM Begriffe b ORDER BY Begriffbezeichnung";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
-                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(queryShowBegriffe, databaseConnection);
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(queryShowBegriffe, connection);
 
                 DataSet dataSet = new DataSet();
                 mySqlDataAdapter.Fill(dataSet);
@@ -65,7 +69,7 @@ namespace LernbibliothekFiA
         {
             string loadDef = "SELECT Begriffsdefinition FROM Begriffe WHERE BegriffID = @BegriffID";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -100,7 +104,7 @@ namespace LernbibliothekFiA
                 "JOIN Themen t ON b.ThemenID = t.ThemenID " +
                 "WHERE BegriffID = @BegriffID";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -129,7 +133,7 @@ namespace LernbibliothekFiA
                     "JOIN Grundkompetenzen g ON b.GKID = g.GKID " +
                     "WHERE BegriffID = @BegriffID";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -160,7 +164,7 @@ namespace LernbibliothekFiA
                 "JOIN Lernfelder l ON (t.LFID = l.LFID OR g.LFID = l.LFID)" +
                 "WHERE BegriffID = @BegriffID";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 

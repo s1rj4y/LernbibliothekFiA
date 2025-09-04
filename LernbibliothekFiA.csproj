@@ -116,6 +116,12 @@
     <Compile Include="GrundkompetenzenScreen.Designer.cs">
       <DependentUpon>GrundkompetenzenScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginScreen.Designer.cs">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,7 @@
     <Compile Include="ThemenScreen.Designer.cs">
       <DependentUpon>ThemenScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserNameDbConnection.cs" />
     <Compile Include="WelcomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GrundkompetenzenScreen.resx">
       <DependentUpon>GrundkompetenzenScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginScreen.resx">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuScreen.resx">
       <DependentUpon>MenuScreen.cs</DependentUpon>

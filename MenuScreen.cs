@@ -12,22 +12,33 @@ namespace LernbibliothekFiA
 {
     public partial class MenuScreen : Form
     {
-        public MenuScreen()
+        private string _dbUserName;
+        
+        public MenuScreen(string dbUserName)
         {
             InitializeComponent();
+
+            _dbUserName = dbUserName;
         }
 
         private void btnWritingScreen_Click(object sender, EventArgs e)
         {
-            ChooseWritingScreen writingScreen = new ChooseWritingScreen();
+            ChooseWritingScreen writingScreen = new ChooseWritingScreen(_dbUserName);
             writingScreen.Show();
             this.Hide();
         }
 
         private void btnReadingScreen_Click(object sender, EventArgs e)
         {
-            ReadingScreen readingScreen = new ReadingScreen();
+            ReadingScreen readingScreen = new ReadingScreen(_dbUserName);
             readingScreen.Show();
+            this.Hide();
+        }
+
+        private void btnRtnLoginScreen_Click(object sender, EventArgs e)
+        {
+            LoginScreen loginScreen = new LoginScreen();
+            loginScreen.Show();
             this.Hide();
         }
     }

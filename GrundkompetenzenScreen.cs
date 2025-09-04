@@ -8,17 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace LernbibliothekFiA
 {
     public partial class GrundkompetenzenScreen : Form
     {
-        private string databaseConnection = "Server=127.0.0.1;Port=3306;Database=Lernbibliothek_FiAe;Uid=root;Pwd=061289";
+        private string _dbUserName;
         private int lastSelectedGKID;
 
-        public GrundkompetenzenScreen()
+        public GrundkompetenzenScreen(string dbUserName)
         {
             InitializeComponent();
+
+            _dbUserName = dbUserName;
 
             ShowGK();
             LoadLF();
@@ -26,7 +29,7 @@ namespace LernbibliothekFiA
 
         private void btnRtnGK2Menu_Click(object sender, EventArgs e)
         {
-            MenuScreen menuScreen = new MenuScreen();
+            MenuScreen menuScreen = new MenuScreen(_dbUserName);
             menuScreen.Show();
             this.Hide();
         }
@@ -45,7 +48,7 @@ namespace LernbibliothekFiA
 
             int lfID;
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -76,7 +79,7 @@ namespace LernbibliothekFiA
             string queryAddGK = "INSERT INTO Grundkompetenzen (GKNr, GKBezeichnung, Bearbeitungsdatum, LFID) " +
                 "VALUES (@GKNr, @GKBezeichnung, @Bearbeitungsdatum, @LFID)";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -110,7 +113,7 @@ namespace LernbibliothekFiA
 
             string queryDeleteGK = "DELETE FROM Grundkompetenzen WHERE GKID = @GKID";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -138,7 +141,7 @@ namespace LernbibliothekFiA
 
             int lfID;
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -170,7 +173,7 @@ namespace LernbibliothekFiA
                 "GKNr = @GKNr, GKBezeichnung = @GKBezeichnung, Bearbeitungsdatum = @Bearbeitungsdatum, LFID = @LFID " +
                 "WHERE GKID = @GKID";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -212,14 +215,21 @@ namespace LernbibliothekFiA
             string queryShowGK = "SELECT g.GKID, g.GKNr, g.GKBezeichnung, g.Bearbeitungsdatum, l.LFBezeichnung " +
                 "FROM Grundkompetenzen g JOIN Lernfelder l ON g.LFID = l.LFID";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
-                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(queryShowGK, databaseConnection);
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(queryShowGK, connection);
 
                 DataSet dataSet = new DataSet();
                 mySqlDataAdapter.Fill(dataSet);
 
-                dataGridViewShowGK.DataSource = dataSet.Tables[0];
+                DataTable table = dataSet.Tables[0];
+
+                if (table.Rows.Count > 0)
+                {
+                    table.Rows[0].Delete();
+                }
+
+                dataGridViewShowGK.DataSource = table;
                 dataGridViewShowGK.Columns[0].Visible = false;
             }
         }
@@ -234,7 +244,7 @@ namespace LernbibliothekFiA
         {
             string queryShowLF = "SELECT LFBezeichnung FROM Lernfelder";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             using (MySqlCommand cmd = new MySqlCommand(queryShowLF, connection))
             {
                 connection.Open();

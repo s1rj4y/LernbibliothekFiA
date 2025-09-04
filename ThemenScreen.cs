@@ -8,17 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace LernbibliothekFiA
 {
     public partial class ThemenScreen : Form
     {
-        private string databaseConnection = "Server=127.0.0.1;Port=3306;Database=Lernbibliothek_FiAe;Uid=root;Pwd=061289";
+        private string _dbUserName;
         private int lastSelectedThemenID;
 
-        public ThemenScreen()
+        public ThemenScreen(string dbUserName)
         {
             InitializeComponent();
+
+            _dbUserName = dbUserName;
 
             ShowThemen();
             LoadLF();
@@ -26,7 +29,7 @@ namespace LernbibliothekFiA
 
         private void btnRtnThemen2Menu_Click(object sender, EventArgs e)
         {
-            MenuScreen menuScreen = new MenuScreen();
+            MenuScreen menuScreen = new MenuScreen(_dbUserName);
             menuScreen.Show();
             this.Hide();
         }
@@ -46,7 +49,7 @@ namespace LernbibliothekFiA
 
             int lfID;
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -76,7 +79,7 @@ namespace LernbibliothekFiA
             string queryAddThema = "INSERT INTO Themen (Themenbezeichnung, Bearbeitungsdatum, LFID) " +
                 "VALUES (@Themenbezeichnung, @Bearbeitungsdatum, @LFID)";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -104,7 +107,7 @@ namespace LernbibliothekFiA
 
             string queryDeleteThema = "DELETE FROM Themen WHERE ThemenID = @ThemenID";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -132,7 +135,7 @@ namespace LernbibliothekFiA
 
             int lfID;
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -163,7 +166,7 @@ namespace LernbibliothekFiA
                 "Themenbezeichnung = @Themenbezeichnung, Bearbeitungsdatum = @Bearbeitungsdatum, LFID = @LFID " +
                 "WHERE ThemenID = @ThemenID";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -203,14 +206,21 @@ namespace LernbibliothekFiA
             string queryShowThemen = "SELECT t.ThemenID, t.Themenbezeichnung, t.Bearbeitungsdatum, l.LFBezeichnung " +
                 "FROM Themen t JOIN Lernfelder l ON t.LFID = l.LFID";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
-                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(queryShowThemen, databaseConnection);
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(queryShowThemen, connection);
 
                 DataSet dataSet = new DataSet();
                 mySqlDataAdapter.Fill(dataSet);
 
-                dataGridViewShowThemen.DataSource = dataSet.Tables[0];
+                DataTable table = dataSet.Tables[0];
+
+                if (table.Rows.Count > 0)
+                {
+                    table.Rows[0].Delete();
+                }
+
+                dataGridViewShowThemen.DataSource = table;
                 dataGridViewShowThemen.Columns[0].Visible = false;
             }
         }
@@ -225,7 +235,7 @@ namespace LernbibliothekFiA
         {
             string queryShowLF = "SELECT LFBezeichnung FROM Lernfelder";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             using (MySqlCommand cmd = new MySqlCommand(queryShowLF, connection))
             {
                 connection.Open();

@@ -33,6 +33,7 @@
             this.btnReadingScreen = new System.Windows.Forms.Button();
             this.lblWriting = new System.Windows.Forms.Label();
             this.lblReading = new System.Windows.Forms.Label();
+            this.btnRtnLoginScreen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnWritingScreen
@@ -65,7 +66,7 @@
             this.lblWriting.AutoSize = true;
             this.lblWriting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWriting.ForeColor = System.Drawing.Color.White;
-            this.lblWriting.Location = new System.Drawing.Point(88, 293);
+            this.lblWriting.Location = new System.Drawing.Point(12, 281);
             this.lblWriting.Name = "lblWriting";
             this.lblWriting.Size = new System.Drawing.Size(106, 24);
             this.lblWriting.TabIndex = 2;
@@ -77,11 +78,25 @@
             this.lblReading.AutoSize = true;
             this.lblReading.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReading.ForeColor = System.Drawing.Color.White;
-            this.lblReading.Location = new System.Drawing.Point(450, 293);
+            this.lblReading.Location = new System.Drawing.Point(545, 281);
             this.lblReading.Name = "lblReading";
             this.lblReading.Size = new System.Drawing.Size(67, 24);
             this.lblReading.TabIndex = 3;
             this.lblReading.Text = "Lesen";
+            // 
+            // btnRtnLoginScreen
+            // 
+            this.btnRtnLoginScreen.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnRtnLoginScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.btnRtnLoginScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRtnLoginScreen.ForeColor = System.Drawing.Color.White;
+            this.btnRtnLoginScreen.Location = new System.Drawing.Point(224, 288);
+            this.btnRtnLoginScreen.Name = "btnRtnLoginScreen";
+            this.btnRtnLoginScreen.Size = new System.Drawing.Size(176, 32);
+            this.btnRtnLoginScreen.TabIndex = 37;
+            this.btnRtnLoginScreen.Text = "Benutzer wechseln";
+            this.btnRtnLoginScreen.UseVisualStyleBackColor = false;
+            this.btnRtnLoginScreen.Click += new System.EventHandler(this.btnRtnLoginScreen_Click);
             // 
             // MenuScreen
             // 
@@ -89,7 +104,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(624, 326);
+            this.ClientSize = new System.Drawing.Size(625, 326);
+            this.Controls.Add(this.btnRtnLoginScreen);
             this.Controls.Add(this.lblReading);
             this.Controls.Add(this.lblWriting);
             this.Controls.Add(this.btnReadingScreen);
@@ -111,5 +127,6 @@
         private System.Windows.Forms.Button btnReadingScreen;
         private System.Windows.Forms.Label lblWriting;
         private System.Windows.Forms.Label lblReading;
+        private System.Windows.Forms.Button btnRtnLoginScreen;
     }
 }

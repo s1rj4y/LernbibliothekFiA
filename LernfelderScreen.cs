@@ -14,19 +14,21 @@ namespace LernbibliothekFiA
 {      
     public partial class LernfelderScreen : Form
     {
-        private string databaseConnection = "Server=127.0.0.1;Port=3306;Database=Lernbibliothek_FiAe;Uid=root;Pwd=061289";
+        private string _dbUserName;
         private int lastSelectedLFID;
 
-        public LernfelderScreen()
+        public LernfelderScreen(string dbUserName)
         {
             InitializeComponent();
+
+            _dbUserName = dbUserName;
 
             ShowLF();
         }
 
         private void btnRtnLF2Menu_Click(object sender, EventArgs e)
         {
-            MenuScreen menuScreen = new MenuScreen();
+            MenuScreen menuScreen = new MenuScreen(_dbUserName);
             menuScreen.Show();
             this.Hide();
         }
@@ -49,7 +51,7 @@ namespace LernbibliothekFiA
             string queryAddLF = "INSERT INTO Lernfelder (LFNr, LFBezeichnung, Startdatum, LFBeschreibung) " +
                 "VALUES (@LFNr, @LFBezeichnung, @Startdatum, @LFBeschreibung)";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -83,7 +85,7 @@ namespace LernbibliothekFiA
 
             string queryDeleteLF = "DELETE FROM Lernfelder WHERE LFID = @LFID";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -116,7 +118,7 @@ namespace LernbibliothekFiA
                 "LFNr = @LFNr, LFBezeichnung = @LFBezeichnung, Startdatum = @Startdatum, LFBeschreibung = @LFBeschreibung " +
                 "WHERE LFID = @LFID";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
                 connection.Open();
 
@@ -157,19 +159,29 @@ namespace LernbibliothekFiA
 
         // Zeigt die Daten der Lernfelder-Tabelle an.
         // LFID wird dabei nicht angezeigt.
+        // Auch wird die erste Zeile ausgeblendet, weil diese lediglich einen Platzhaltereintrag enthält.
         private void ShowLF()
         {
             string queryShowLF = "SELECT * FROM Lernfelder";
 
-            using (MySqlConnection connection = new MySqlConnection(databaseConnection))
+            using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
-                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(queryShowLF, databaseConnection);
+                connection.Open();
+
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(queryShowLF, connection);
 
                 DataSet dataSet = new DataSet();
                 mySqlDataAdapter.Fill(dataSet);
 
-                dataGridViewShowLF.DataSource = dataSet.Tables[0];
-                dataGridViewShowLF.Columns[0].Visible = false;
+                DataTable table = dataSet.Tables[0];
+
+                if (table.Rows.Count > 0)
+                {
+                    table.Rows[0].Delete();
+                }
+
+                dataGridViewShowLF.DataSource = table;
+                dataGridViewShowLF.Columns[0].Visible = false;                
             }
         }
 

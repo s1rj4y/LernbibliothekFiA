@@ -19,12 +19,9 @@ namespace LernbibliothekFiA
 
         private void btnEnterLogin_Click(object sender, EventArgs e)
         {
-            // Login nachträglich einbauen
-
-            MenuScreen menuScreen = new MenuScreen();
-            menuScreen.Show();
+            LoginScreen loginScreen = new LoginScreen();
+            loginScreen.Show();
             this.Hide();
-
         }
     }
 }
