@@ -213,7 +213,7 @@ namespace LernbibliothekFiA
         private void ShowGK()
         {
             string queryShowGK = "SELECT g.GKID, g.GKNr, g.GKBezeichnung, g.Bearbeitungsdatum, l.LFBezeichnung " +
-                "FROM Grundkompetenzen g JOIN Lernfelder l ON g.LFID = l.LFID";
+                "FROM Grundkompetenzen g JOIN Lernfelder l ON g.LFID = l.LFID ORDER BY g.GKID";
 
             using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {

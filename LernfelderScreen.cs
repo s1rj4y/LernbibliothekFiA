@@ -162,7 +162,7 @@ namespace LernbibliothekFiA
         // Auch wird die erste Zeile ausgeblendet, weil diese lediglich einen Platzhaltereintrag enthält.
         private void ShowLF()
         {
-            string queryShowLF = "SELECT * FROM Lernfelder";
+            string queryShowLF = "SELECT * FROM Lernfelder ORDER BY LFID";
 
             using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {

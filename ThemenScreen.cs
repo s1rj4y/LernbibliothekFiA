@@ -204,7 +204,7 @@ namespace LernbibliothekFiA
         private void ShowThemen()
         {
             string queryShowThemen = "SELECT t.ThemenID, t.Themenbezeichnung, t.Bearbeitungsdatum, l.LFBezeichnung " +
-                "FROM Themen t JOIN Lernfelder l ON t.LFID = l.LFID";
+                "FROM Themen t JOIN Lernfelder l ON t.LFID = l.LFID ORDER BY t.ThemenID";
 
             using (var connection = UserNameDbConnection.GetConnection(_dbUserName))
             {
