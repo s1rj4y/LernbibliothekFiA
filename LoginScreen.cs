@@ -78,7 +78,7 @@ namespace LernbibliothekFiA
                     cmd.ExecuteNonQuery();
                 }
 
-                string queryTableLFCreate = $@"create table `{safeDbName}`.Lernfelder " +
+                string queryTableLFCreate = $@"CREATE TABLE `{safeDbName}`.Lernfelder " +
                     "(LFID int unsigned not null auto_increment primary key," +
                     "LFNr int not null," +
                     "LFBezeichnung varchar(100) not null, " +
@@ -101,7 +101,7 @@ namespace LernbibliothekFiA
                     cmd.ExecuteNonQuery();
                 }
 
-                string queryTableThemenCreate = $@"create table `{safeDbName}`.Themen " +
+                string queryTableThemenCreate = $@"CREATE TABLE `{safeDbName}`.Themen " +
                     "(ThemenID int unsigned not null auto_increment primary key," +
                     "Themenbezeichnung varchar(100) not null," +
                     "Bearbeitungsdatum date," +
@@ -121,7 +121,7 @@ namespace LernbibliothekFiA
                     cmd.ExecuteNonQuery();
                 }
 
-                string queryTableGKCreate = $@"create table `{safeDbName}`.Grundkompetenzen " +
+                string queryTableGKCreate = $@"CREATE TABLE `{safeDbName}`.Grundkompetenzen " +
                     "(GKID int unsigned not null auto_increment primary key," +
                     "GKNr int not null," +
                     "GKBezeichnung varchar(100) not null," +
@@ -144,7 +144,7 @@ namespace LernbibliothekFiA
                     cmd.ExecuteNonQuery();
                 }
 
-                string queryTableBegriffeCreate = $@"create table `{safeDbName}`.Begriffe " +
+                string queryTableBegriffeCreate = $@"CREATE TABLE `{safeDbName}`.Begriffe " +
                     "(BegriffID int unsigned not null auto_increment primary key," +
                     "Begriffbezeichnung varchar(100) not null," +
                     "Begriffsdefinition varchar(2000) not null," +
