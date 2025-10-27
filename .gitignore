@@ -416,3 +416,6 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Ignore launchSettings.json to protect secrets
+Properties/launchSettings.json

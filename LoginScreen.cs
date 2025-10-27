@@ -1,12 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
@@ -14,11 +7,18 @@ namespace LernbibliothekFiA
 {
     public partial class LoginScreen : Form
     {
-        private string dbUserConnection = "Server=127.0.0.1;Port=3306;Database=user_lernbibliothek;Uid=root;Pwd=061289";
+        private static string GetUserConnectionString()
+        {
+            string pw = Environment.GetEnvironmentVariable("DB_PASSWORD");            
+            return $"Server=127.0.0.1;Port=3306;Database=user_lernbibliothek;Uid=root;Pwd={pw}";
+        }
+
+        private readonly string dbUserConnection;
 
         public LoginScreen()
         {
             InitializeComponent();
+            dbUserConnection = GetUserConnectionString();
         }
 
         private void btnUserCreate_Click(object sender, EventArgs e)
